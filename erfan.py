@@ -21,6 +21,10 @@ from dangerous_features import dangerous_features
 from unique_features import unique_features
 from vip_features import vip_features
 
+# Flask dummy server for Render Web Service (Free)
+from flask import Flask
+import asyncio
+
 
 # EMOTES BY ALAMIN X CODEX
 
@@ -1057,5 +1061,44 @@ async def StarTinG():
             print(f"ErroR TcP - {e} => ResTarTinG ...")
 
 
-if __name__ == "__main__":
+# Flask dummy server for Render (keeps service alive)
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return """
+    <html>
+        <head><title>ERFAN BOT</title></head>
+        <body style="background:#000;color:#0f0;font-family:monospace;padding:50px;text-align:center;">
+            <h1>🔥 ERFAN VIP BOT 🔥</h1>
+            <h2>✅ Bot is Running!</h2>
+            <p>Status: <span style="color:#0f0;">ONLINE</span></p>
+            <p>Free Fire TCP Bot by ERFAN</p>
+            <hr>
+            <p>Bot is active and listening for commands in Free Fire!</p>
+        </body>
+    </html>
+    """
+
+@app.route('/health')
+def health():
+    return {"status": "ok", "bot": "running", "service": "erfan-vip-bot"}
+
+def run_flask():
+    """Run Flask server on Render's PORT"""
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port, debug=False)
+
+def run_bot():
+    """Run the main bot"""
     asyncio.run(StarTinG())
+
+if __name__ == "__main__":
+    # Start Flask server in background thread
+    flask_thread = Thread(target=run_flask, daemon=True)
+    flask_thread.start()
+    print("🌐 Flask server started on PORT for Render")
+    
+    # Run bot in main thread
+    print("🤖 Starting ERFAN BOT...")
+    run_bot()
