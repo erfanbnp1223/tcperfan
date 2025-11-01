@@ -1,0 +1,28 @@
+{
+  "admins": [
+    4259604271
+  ],
+  "whitelist": [],
+  "blacklist": [],
+  "bot_settings": {
+    "max_requests_per_minute": 10,
+    "cooldown_seconds": 3,
+    "auto_accept_invites": true,
+    "auto_response": true,
+    "log_commands": true
+  },
+  "emote_combos": {
+    "combo1": [909000001, 909000002, 909000003],
+    "combo2": [909000004, 909000005, 909000006],
+    "combo3": [909000007, 909000008, 909000009],
+    "dance": [909000010, 909000011, 909000012],
+    "victory": [909000013, 909000014, 909000015],
+    "funny": [909000016, 909000017, 909000018]
+  },
+  "custom_messages": {
+    "welcome": "[B][C][00FF00]🎮 Welcome to ERFAN's Advanced Bot! 🎮\n[FFFF00]Type /help for commands",
+    "unauthorized": "[B][C][FF0000]❌ Unauthorized! Only admins can use this command!",
+    "cooldown": "[B][C][FFA500]⏰ Please wait! Cooldown active...",
+    "spam_warning": "[B][C][FF4500]⚠️ Stop spamming or you'll be blacklisted!"
+  }
+}
